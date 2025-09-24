@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 2nd Monthsary | Sanrio Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        :root {
+            --main-purple: #a683d1;
+            --light-purple: #d8c3f2;
+            --dark-purple: #7b5ba8;
+            --accent-pink: #f9b4d4;
+            --accent-blue: #9ad3de;
+            --text-color: #4a3b76;
+        }
+
+        body {
+            background-color: var(--light-purple);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--main-purple), var(--dark-purple));
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-pink);
+            margin-bottom: 2rem;
+        }
+
+        .sanrio-characters {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .character {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .character:hover {
+            transform: translateY(-10px);
+        }
+
+        .character img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            color: var(--dark-purple);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 3px dashed var(--accent-pink);
+            padding-bottom: 0.5rem;
+        }
+
+        .love-message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .photo-item {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .memory-box {
+            background-color: var(--light-purple);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            border-left: 5px solid var(--main-purple);
+        }
+
+        .memory-date {
+            font-weight: bold;
+            color: var(--dark-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, var(--main-purple), var(--dark-purple));
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+        }
+
+        .love-letter {
+            background-color: #f9f3ff;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px dashed var(--accent-pink);
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .love-letter:before {
+            content: "💜";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background-color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark-purple), var(--main-purple));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top-left-radius: 50% 20%;
+            border-top-right-radius: 50% 20%;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            animation: float 5s infinite linear;
+        }
+
+        .sanrio-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .sanrio-character-bg {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            animation: floatSanrio 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        @keyframes floatSanrio {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+            }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-pink), var(--main-purple));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            margin: 1rem auto;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Video Popup Styles */
+        .video-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-purple);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .sanrio-characters {
+                flex-wrap: wrap;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .video-container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .sanrio-character-bg {
+                font-size: 2rem;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts-container"></div>
+    <div class="sanrio-background" id="sanrio-background"></div>
+    
+    <div class="video-popup" id="videoPopup">
+        <div class="video-container">
+            <span class="close-btn" id="closeVideo">&times;</span>
+            <h3 style="text-align: center; margin-bottom: 15px; color: var(--dark-purple);">A small edit for you babyy Gebyy💜</h3>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="text-align: center; margin-top: 15px; color: var(--text-color);">You mean the world to me! 💖</p>
+        </div>
+    </div>
+    
+    <header>
+        <h1>Happy 2nd Monthsary!</h1>
+        <p class="subtitle">Celebrating our time together💜</p>
+        
+        <div class="sanrio-characters">
+            <div class="character">
+                <img src="images/1.jpeg" alt="My Melody">
+            </div>
+            <div class="character">
+                <img src="images/2.jpeg" alt="Cinnamoroll">
+            </div>
+            <div class="character">
+                <img src="images/3.jpeg" alt="Kerokerokeroppi">
+            </div>
+            <div class="character">
+                <img src="images/4.jpeg" alt="Pompompurin">
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Our Love Story</h2>
+            <p class="love-message">
+                Every moment with you feels like a scene from a fairytale, and I'm so grateful 
+                to have you by my side. Here's to many more days of creating beautiful memories together!
+            </p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-style: italic; color: var(--dark-purple); margin-top: 10px;">
+                Time we've spent together since July 24, 2025 💖
+            </p>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Special Memories Together💜</h2>
+            
+            <div class="memory-box">
+                <div class="memory-date">Our First Date</div>
+                <p>I'll never forget how nervous I was before I see you, how your smile instantly made me feel at ease and our first ever kiss in the photobooth. That was the beginning of our beautiful love story.</p>
+            </div>
+            
+            <div class="memory-box">
+                <div class="memory-date">Our 1st Monthsary</div>
+                <p>Actually we didn't do much this day, but just being together that day is enough for me.</p>
+            </div>
+            
+            <div class="memory-box">
+                <div class="memory-date">Our Dates</div>
+                <p>Our photobooth, chowking, joggings, theater, ice cream, and our mini dates in your house, all of them are super memorable as long .</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">Our Photo Gallery</h2>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="img/1.jpeg" alt="memory 1">
+                </div>
+                <div class="photo-item">
+                    <img src="img/2.jpg" alt="memory 2">
+                </div>
+                <div class="photo-item">
+                    <img src="img/Internet_20250724_131551_1.gif" alt="memory 3">
+                </div>
+                <div class="photo-item">
+                    <img src="img/4.jpg" alt="memory 4">
+                </div>
+                <div class="photo-item">
+                    <img src="img/5.jpg" alt="memory 5">
+                </div>
+                <div class="photo-item">
+                    <img src="img/6.jpg" alt="memory 6">
+                </div>
+                <div class="photo-item">
+                    <img src="img/7.jpg" alt="memory 7">
+                </div>
+                <div class="photo-item">
+                    <img src="img/8.jpg" alt="memory 8">
+                </div>
+                <div class="photo-item">
+                    <img src="img/9.jpg" alt="memory 9">
+                </div>
+                <div class="photo-item">
+                    <img src="img/11.jpg" alt="memory 11">
+                </div>
+                <div class="photo-item">
+                    <img src="img/22.jpg" alt="memory 22">
+                </div>
+                <div class="photo-item">
+                    <img src="img/33.jpg" alt="memory 33">
+                </div>
+                <div class="photo-item">
+                    <img src="img/44.jpg" alt="memory 44">
+                </div>
+                <div class="photo-item">
+                    <img src="img/55.jpg" alt="memory 55">
+                </div>
+                <div class="photo-item">
+                    <img src="img/66.jpg" alt="memory 66">
+                </div>
+                <div class="photo-item">
+                    <img src="img/77.jpg" alt="memory 77">
+                </div>
+                <div class="photo-item">
+                    <img src="img/88.jpg" alt="memory 88">
+                </div>
+                <div class="photo-item">
+                    <img src="img/99.jpg" alt="memory 99">
+                </div><div class="photo-item">
+                    <img src="img/12.jpg" alt="memory 12">
+                </div>
+                <div class="photo-item">
+                    <img src="img/13.jpg" alt="memory 13">
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 15px; color: var(--dark-purple);">
+                (Replace the image URLs with your own photos to make it personal!)
+            </p>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">A Love Letter Just For You</h2>
+            <div class="love-letter">
+                <p>My Dearest,</p>
+                <p>These past months have been the most beautiful and best of my life. Every day with you feels like a gift.</p>
+                <p>I love how we can be our complete, silly selves around each other - whether we're debating on my nonsense is the cutest or just enjoying comfortable silence together.</p>
+                <p>You've brought so much color into my world babyy, and I can't wait to see what the future holds for us. There's still so many challanges that will come to us soon.</p>
+                <p>Me being a overthinker and dumb sometimes, and you being the perfect girl that I got for two month now. I'm happy to have you in my life, sometimes I overthink but my love for you will always be the same.</p>
+                <p>Thank you for all the love and for understaing me this past 2 months. I promise that I will love you with all my heart and you I will stay with you until we are both in the heaven hehe.</p>
+                <p>I will love you for who you are, I can't wait to see what the future holds for us.</p>
+                <p>‎</p>
+                <p>Forever yours,</p>
+                <p>Your Life time Loving Babyy Jrald 💜</p>
+            </div>
+            
+            <button class="btn" id="surprise-btn">Click for a Surprise!</button>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Made with 💜 for the most amazing, adorable and gorgeous person in my life</p>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartIcons = ['💜', '🩷', '💖', '💗', '💘'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Create floating Sanrio characters in background
+        function createSanrioBackground() {
+            const sanrioContainer = document.getElementById('sanrio-background');
+            const sanrioCharacters = ['🐰', '🐸', '🐶', '🐻', '⭐', '🐱', '🦄', '🐨'];
+            
+            for (let i = 0; i < 15; i++) {
+                const character = document.createElement('div');
+                character.classList.add('sanrio-character-bg');
+                character.innerHTML = sanrioCharacters[Math.floor(Math.random() * sanrioCharacters.length)];
+                character.style.left = Math.random() * 100 + 'vw';
+                character.style.animationDuration = (Math.random() * 30 + 20) + 's';
+                character.style.animationDelay = Math.random() * 10 + 's';
+                character.style.fontSize = (Math.random() * 3 + 2) + 'rem';
+                sanrioContainer.appendChild(character);
+            }
+        }
+        
+        // Time counter that starts from July 24, 2025
+        function updateTimeCounter() {
+            // Set the start date to July 24, 2025
+            const startDate = new Date('2025-07-24T00:00:00');
+            const now = new Date();
+            
+            // Calculate the difference in milliseconds
+            const diff = now - startDate;
+            
+            // If the current date is before July 24, 2025, show zeros
+            if (diff < 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Update the display
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Video popup functionality
+        function setupVideoPopup() {
+            const videoPopup = document.getElementById('videoPopup');
+            const surpriseBtn = document.getElementById('surprise-btn');
+            const closeVideo = document.getElementById('closeVideo');
+            
+            surpriseBtn.addEventListener('click', function() {
+                videoPopup.style.display = 'flex';
+            });
+            
+            closeVideo.addEventListener('click', function() {
+                videoPopup.style.display = 'none';
+            });
+            
+            // Close popup when clicking outside the video container
+            videoPopup.addEventListener('click', function(e) {
+                if (e.target === videoPopup) {
+                    videoPopup.style.display = 'none';
+                }
+            });
+        }
+        
+        // Surprise button heart animation
+        document.getElementById('surprise-btn').addEventListener('click', function() {
+            // Create a burst of hearts
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartIcons = ['💜', '🩷', '💖', '💗', '💘'];
+            
+            for (let i = 0; i < 10; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.parentNode.removeChild(heart);
+                    }
+                }, 5000);
+            }
+        });
+        
+        // Initialize everything when the page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            createSanrioBackground();
+            updateTimeCounter();
+            setInterval(updateTimeCounter, 1000);
+            setupVideoPopup();
+            
+            // Update the title to show the current count
+            setInterval(() => {
+                const days = document.getElementById('days').textContent;
+                document.title = `${days} Days Together | Our Love Story`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
